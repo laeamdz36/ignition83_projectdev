@@ -1,0 +1,39 @@
+# Ignition runtime data
+**/db/
+**/metricsdb/
+**/autobackup/
+**/db_backup_sqlite.idb
+**/valueStore.idb
+**/jar-cache/
+**/request
+**/response
+**/var
+**/logs
+**/certificates/
+**/keystore/
+**/.container-init.conf
+**/conversion-report.txt
+**.digest.json
+**/projects/conversion-report.txt
+**/migration-log-*.md
+**/.resources/
+**/.alarms_*
+
+# Environment-specific configuration and secrets
+**/config/local/
+**/config/resources/local/
+**/secrets/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Temporary files, backups, and logs
+*.tmp
+*.bak
+*.log
