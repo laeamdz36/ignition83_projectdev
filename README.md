@@ -40,6 +40,17 @@ The named volume is mounted at `/usr/local/bin/ignition/data` as well, preservin
 
 The image is configured as user `ignition` in `dockerfile.ignGit`. The actual numeric UID/GID and host bind-mount access depend on the built image and Docker host and must be checked there. On Linux, grant only the needed read/write access to the verified container UID/GID. On Windows with Docker Desktop, check the directory ACL and verify access from the container; do not use `chmod 777`.
 
+## Prepare bind-mount permissions
+
+Before starting the Gateway, run the pre-start helper from Bash (Git Bash or WSL on Windows):
+
+```bash
+bash ./scripts/prepare-ignition-mounts.sh
+docker compose up -d
+```
+
+The helper refuses to run while the Gateway is active. It creates `config/resources/.resources`, applies group-write permissions for the image's `ignition` group without changing file owners, then launches a temporary container as `ignition` to verify that all three mounted paths accept file creation. It does not start or recreate the Gateway. If the write probe fails on Windows, adjust the host ACL/Docker Desktop file-sharing permissions for these folders; Linux `chgrp`/`chmod` may not map to NTFS ACLs.
+
 ## Start, stop, and inspect
 
 From the repository root:

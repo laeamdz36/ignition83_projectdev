@@ -16,8 +16,8 @@ services:
     networks:
       - ot-network-cicd
     volumes:
-      - ./services/ignition/config:/usr/local/bin/ignition/data/config
-      - ./services/ignition/projects:/usr/local/bin/ignition/data/projects
+      - ./services/ignition/config:/usr/local/bin/ignition/data/config:rw
+      - ./services/ignition/projects:/usr/local/bin/ignition/data/projects:rw
     # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
     environment:
       - ACCEPT_IGNITION_EULA=Y
