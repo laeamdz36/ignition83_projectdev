@@ -150,6 +150,214 @@ After an approved checkout update, scan configuration under **Platform > System 
 
 For future expansion, place each Gateway's `config/` and `projects/` under a distinct service directory, such as `services/gateway-01/` and `services/gateway-02/`. Use separate Compose services and deployment-specific settings. Share project directories only when their lifecycle and content are intentionally common across those Gateways.
 
+# SSH Authentication with GitHub on Ubuntu
+
+Guide to configure SSH authentication using a GitHub Deploy Key on an Ubuntu server.
+
+## 1. Install Git and SSH Client
+
+```bash
+sudo apt update
+sudo apt install git openssh-client -y
+```
+
+## 2. Generate an SSH Key Pair
+
+Create the SSH directory if it doesn't exist:
+
+```bash
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+```
+
+Generate an Ed25519 key dedicated to the Ignition repository:
+
+```bash
+ssh-keygen -t ed25519 \
+  -C "ignition-infrastructure" \
+  -f ~/.ssh/ignition_github
+```
+
+Set a passphrase when prompted.
+
+Set the appropriate permissions:
+
+```bash
+chmod 600 ~/.ssh/ignition_github
+chmod 644 ~/.ssh/ignition_github.pub
+```
+
+The generated files are:
+
+- `~/.ssh/ignition_github`: Private key. Never share or commit it.
+- `~/.ssh/ignition_github.pub`: Public key. This is the key shared with GitHub.
+
+## 3. Configure GitHub Deploy Key
+
+Display the public key:
+
+```bash
+cat ~/.ssh/ignition_github.pub
+```
+
+Copy its contents and navigate to:
+
+GitHub Repository → Settings → Deploy keys → Add deploy key.
+
+Configure:
+
+- Title: `Ubuntu Ignition Development Server`
+- Key: Paste the public key.
+- Enable: **Allow write access**.
+
+Save the Deploy Key.
+
+## 4. Configure SSH Client
+
+Create or edit:
+
+```bash
+nano ~/.ssh/config
+```
+
+Add:
+
+```sshconfig
+Host github-ignition
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/ignition_github
+    IdentitiesOnly yes
+```
+
+Set permissions:
+
+```bash
+chmod 600 ~/.ssh/config
+```
+
+## 5. Configure Git Remote
+
+For an existing repository:
+
+```bash
+git remote set-url origin \
+git@github-ignition:USERNAME/REPOSITORY.git
+```
+
+Verify:
+
+```bash
+git remote -v
+```
+
+Test SSH authentication:
+
+```bash
+ssh -T git@github-ignition
+```
+
+Expected response:
+
+```text
+Hi USERNAME! You've successfully authenticated,
+but GitHub does not provide shell access.
+```
+
+## 6. Start SSH Agent
+
+Start the SSH agent:
+
+```bash
+eval "$(ssh-agent -s)"
+```
+
+Load the private key:
+
+```bash
+ssh-add ~/.ssh/ignition_github
+```
+
+Enter the passphrase when prompted.
+
+Verify loaded identities:
+
+```bash
+ssh-add -l
+```
+
+The key is now available for Git operations without entering the passphrase again while the agent remains accessible.
+
+## 7. Git Operations
+
+You can now perform Git operations normally:
+
+```bash
+git status
+git add .
+git commit -m "Update Ignition configuration"
+git push origin develop
+```
+
+No additional passphrase prompt should appear while the key remains loaded in the agent.
+
+## 8. Remove SSH Key from Agent
+
+If you want to unload the private key but keep the agent running:
+
+```bash
+ssh-add -d ~/.ssh/ignition_github
+```
+
+Alternatively, remove all loaded keys:
+
+```bash
+ssh-add -D
+```
+
+## 9. Stop SSH Agent
+
+When finished, terminate the SSH agent:
+
+```bash
+ssh-agent -k
+```
+
+This terminates the agent and unloads its keys from memory.
+
+Verify:
+
+```bash
+ssh-add -l
+```
+
+If the agent has terminated, the command may report that it cannot connect to the authentication agent.
+
+## 10. Next SSH Session
+
+When connecting to Ubuntu again, repeat:
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/ignition_github
+```
+
+Enter the passphrase and continue working.
+
+---
+
+## Security Recommendations
+
+- Never commit private SSH keys to Git.
+- Never copy private keys into Docker images.
+- Do not mount `~/.ssh` inside the Ignition container.
+- Use a dedicated Deploy Key with write access only to the required repository.
+- Keep appropriate filesystem permissions on `~/.ssh`.
+- Protect the Ubuntu account with strong authentication.
+- Unload SSH keys when finishing sensitive administrative sessions.
+
+**Architecture:** Git and SSH authentication run on the Ubuntu host. The Ignition container only accesses configuration and project files through Docker bind mounts.
+
 ## References
 
 - [Ignition 8.3 Version and Source Control Guide](https://www.docs.inductiveautomation.com/docs/8.3/tutorials/version-control-guide)
