@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: dockerfile.ignGit
     # image: inductiveautomation/ignition:8.3-nightly
-    container_name: DEV_IgnitionSTD83
+    container_name: DEV_IgnitionSTD83_CICD
     restart: no
     ports:
       # <puerto_host>:<puerto_contenedor>
