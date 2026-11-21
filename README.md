@@ -18,6 +18,7 @@ This repository keeps the Ignition 8.3 Gateway configuration and project resourc
 ```
 
 - `services/ignition/config/` contains the curated contents of Ignition's `data/config` directory.
+- Keep `services/ignition/config/resources/` present. Ignition creates its runtime `.resources/` directory there; `.resources/` remains excluded from Git.
 - `services/ignition/projects/` contains one directory per Ignition project.
 - Keep each project as a normal directory in the root Git repository. Do not initialize Git repositories inside projects.
 - `gw-datastd83` remains a Docker named volume for the rest of `data`, including runtime state. It is not the Git source of truth for the two bind-mounted directories.
