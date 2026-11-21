@@ -1,0 +1,13 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "keyframes": {
+        "0%": {
+          "fill": "var(--topbar--bgColor)"
+        },
+        "100%": {}
+      }
+    }
+  }
+}

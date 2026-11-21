@@ -1,0 +1,86 @@
+{
+  "custom": {},
+  "params": {
+    "icon_path": "material/settings",
+    "tab_name": "value"
+  },
+  "propConfig": {
+    "params.icon_path": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tab_name": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 120
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "70%",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.icon_path"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "30%"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.tab_name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Values",
+            "textAlign": "center"
+          },
+          "textStyle": {
+            "backgroundColor": "#FFFFFF00",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Tabs/Body"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

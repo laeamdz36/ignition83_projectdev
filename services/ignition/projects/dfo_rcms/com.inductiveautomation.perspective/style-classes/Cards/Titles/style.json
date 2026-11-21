@@ -1,0 +1,12 @@
+{
+  "base": {
+    "style": {
+      "fontFamily": "Maersk",
+      "fontSize": "14px",
+      "fontWeight": "bold",
+      "overflow": "hidden",
+      "textAlign": "center",
+      "textTransform": "uppercase"
+    }
+  }
+}

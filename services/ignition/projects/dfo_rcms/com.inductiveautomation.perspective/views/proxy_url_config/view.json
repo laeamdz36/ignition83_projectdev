@@ -1,0 +1,2205 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 703,
+      "width": 933
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Form"
+        },
+        "position": {
+          "basis": "533px"
+        },
+        "props": {
+          "actions": {
+            "submit": {
+              "disabled": true
+            }
+          },
+          "columns": {
+            "align": "stretch",
+            "items": [
+              {
+                "rows": {
+                  "align": "start",
+                  "items": [
+                    {
+                      "align": "start",
+                      "enabled": true,
+                      "enabledWhen": {},
+                      "justify": "start",
+                      "style": {
+                        "classes": ""
+                      },
+                      "visible": true,
+                      "visibleWhen": {},
+                      "widgets": [
+                        {
+                          "checkbox": {
+                            "align": "center",
+                            "checkedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "indeterminateIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/indeterminate_check_box",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "triState": false,
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "uncheckedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box_outline_blank",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "ll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-time-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "lll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "dropdown": {
+                            "allowCustomOptions": false,
+                            "maxMenuHeight": 350,
+                            "minMenuHeight": 150,
+                            "multiSelect": false,
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "isDisabled": false,
+                                "label": "",
+                                "value": ""
+                              }
+                            ],
+                            "placeholder": {
+                              "color": "",
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {
+                                  "height": "16px",
+                                  "width": "16px"
+                                }
+                              },
+                              "text": "Select..."
+                            },
+                            "search": {
+                              "enabled": false,
+                              "matching": "any",
+                              "noResultsText": "No results found",
+                              "searchParam": ""
+                            },
+                            "showClearIcon": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "textAlign": "left",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrapMultiSelectValues": true
+                          },
+                          "email": {
+                            "autoComplete": "",
+                            "multiple": false,
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "enabled": true,
+                          "file-upload": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "fileSizeLimit": {
+                                  "value": 10
+                                },
+                                "maxUploads": {
+                                  "enabled": true,
+                                  "value": 5
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "supportedFileTypes": {
+                                  "enabled": false,
+                                  "value": []
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "id": "header",
+                          "info": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Configuration definition for RCMS connection",
+                            "tooltip": {
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "location": "above",
+                              "maxWidth": 360,
+                              "pixelOffset": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "style": {
+                                "classes": ""
+                              },
+                              "tail": true
+                            },
+                            "type": "caption"
+                          },
+                          "label": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "RMCS Proxy Config"
+                          },
+                          "layout": "column",
+                          "number": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "max": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "min": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "step": {
+                                  "enabled": false,
+                                  "value": ""
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "password": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "radio": {
+                            "align": "center",
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": "value"
+                              }
+                            ],
+                            "selectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_checked",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "unselectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_unchecked",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "readOnly": false,
+                          "slider": {
+                            "handleColor": "",
+                            "labels": {
+                              "interval": 20,
+                              "show": false
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "railColor": "",
+                            "step": 1,
+                            "style": {
+                              "classes": ""
+                            },
+                            "trackColor": ""
+                          },
+                          "style": {
+                            "classes": ""
+                          },
+                          "tabIndex": 0,
+                          "tel": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text-area": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "spellCheck": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrap": "soft"
+                          },
+                          "time-picker": {
+                            "defaultToNow": false,
+                            "format": "LT",
+                            "locale": "en",
+                            "maxTime": null,
+                            "minTime": null,
+                            "showSpinners": true,
+                            "style": {
+                              "classes": ""
+                            }
+                          },
+                          "toggle": {
+                            "align": "center",
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "type": "none",
+                          "url": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "visible": true
+                        }
+                      ]
+                    },
+                    {
+                      "align": "start",
+                      "enabled": true,
+                      "enabledWhen": {},
+                      "justify": "start",
+                      "style": {
+                        "classes": ""
+                      },
+                      "visible": true,
+                      "visibleWhen": {},
+                      "widgets": [
+                        {
+                          "checkbox": {
+                            "align": "center",
+                            "checkedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "indeterminateIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/indeterminate_check_box",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "triState": false,
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "uncheckedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box_outline_blank",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "ll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-time-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "lll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "dropdown": {
+                            "allowCustomOptions": false,
+                            "maxMenuHeight": 350,
+                            "minMenuHeight": 150,
+                            "multiSelect": false,
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "isDisabled": false,
+                                "label": "",
+                                "value": ""
+                              }
+                            ],
+                            "placeholder": {
+                              "color": "",
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {
+                                  "height": "16px",
+                                  "width": "16px"
+                                }
+                              },
+                              "text": "Select..."
+                            },
+                            "search": {
+                              "enabled": false,
+                              "matching": "any",
+                              "noResultsText": "No results found",
+                              "searchParam": ""
+                            },
+                            "showClearIcon": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "textAlign": "left",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrapMultiSelectValues": true
+                          },
+                          "email": {
+                            "autoComplete": "",
+                            "multiple": false,
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "enabled": true,
+                          "file-upload": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "fileSizeLimit": {
+                                  "value": 10
+                                },
+                                "maxUploads": {
+                                  "enabled": true,
+                                  "value": 5
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "supportedFileTypes": {
+                                  "enabled": false,
+                                  "value": []
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "id": "ip_proxy",
+                          "info": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Type the ip for the proxy server",
+                            "tooltip": {
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "location": "above",
+                              "maxWidth": 360,
+                              "pixelOffset": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "style": {
+                                "classes": ""
+                              },
+                              "tail": true
+                            },
+                            "type": "caption"
+                          },
+                          "label": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "RCMS Proxy IP"
+                          },
+                          "layout": "row",
+                          "number": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "max": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "min": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "step": {
+                                  "enabled": false,
+                                  "value": ""
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "password": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "radio": {
+                            "align": "center",
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": "value"
+                              }
+                            ],
+                            "selectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_checked",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "unselectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_unchecked",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "readOnly": false,
+                          "slider": {
+                            "handleColor": "",
+                            "labels": {
+                              "interval": 20,
+                              "show": false
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "railColor": "",
+                            "step": 1,
+                            "style": {
+                              "classes": ""
+                            },
+                            "trackColor": ""
+                          },
+                          "style": {
+                            "classes": ""
+                          },
+                          "tabIndex": 0,
+                          "tel": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text": {
+                            "autoComplete": "",
+                            "placeholder": "RCMS Proxy IP",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": true,
+                                  "value": "^(?:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$"
+                                },
+                                "required": {
+                                  "enabled": true
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text-area": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "spellCheck": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrap": "soft"
+                          },
+                          "time-picker": {
+                            "defaultToNow": false,
+                            "format": "LT",
+                            "locale": "en",
+                            "maxTime": null,
+                            "minTime": null,
+                            "showSpinners": true,
+                            "style": {
+                              "classes": ""
+                            }
+                          },
+                          "toggle": {
+                            "align": "center",
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "type": "text",
+                          "url": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": ""
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "visible": true
+                        }
+                      ]
+                    },
+                    {
+                      "enabled": true,
+                      "enabledWhen": {},
+                      "style": {
+                        "classes": ""
+                      },
+                      "visible": true,
+                      "visibleWhen": {},
+                      "widgets": [
+                        {
+                          "checkbox": {
+                            "align": "center",
+                            "checkedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box",
+                              "style": {}
+                            },
+                            "indeterminateIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/indeterminate_check_box",
+                              "style": {}
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "triState": false,
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "uncheckedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box_outline_blank",
+                              "style": {}
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "ll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-time-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "lll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "dropdown": {
+                            "allowCustomOptions": false,
+                            "maxMenuHeight": 350,
+                            "minMenuHeight": 150,
+                            "multiSelect": false,
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [],
+                            "placeholder": {
+                              "color": "",
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {
+                                  "height": "16px",
+                                  "width": "16px"
+                                }
+                              },
+                              "text": "Select..."
+                            },
+                            "search": {
+                              "enabled": false,
+                              "matching": "any",
+                              "noResultsText": "No results found",
+                              "searchParam": ""
+                            },
+                            "showClearIcon": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "textAlign": "left",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrapMultiSelectValues": true
+                          },
+                          "email": {
+                            "autoComplete": "off",
+                            "multiple": false,
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "enabled": true,
+                          "file-upload": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "fileSizeLimit": {
+                                  "value": 10
+                                },
+                                "maxUploads": {
+                                  "enabled": true,
+                                  "value": 5
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "supportedFileTypes": {
+                                  "enabled": false,
+                                  "value": []
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "id": "proxy_port",
+                          "info": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Type the proxy port",
+                            "tooltip": {
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "location": "above",
+                              "maxWidth": 360,
+                              "pixelOffset": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "style": {
+                                "classes": ""
+                              },
+                              "tail": true
+                            },
+                            "type": "tooltip"
+                          },
+                          "label": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "RCMS Proxy Port"
+                          },
+                          "layout": "column",
+                          "number": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "max": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "min": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "step": {
+                                  "enabled": false,
+                                  "value": "any"
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "password": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "radio": {
+                            "align": "center",
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": "value"
+                              }
+                            ],
+                            "selectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_checked",
+                              "style": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "unselectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_unchecked",
+                              "style": {}
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "readOnly": false,
+                          "slider": {
+                            "handleColor": "",
+                            "labels": {
+                              "interval": 20,
+                              "show": false
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "railColor": "",
+                            "step": 1,
+                            "style": {
+                              "classes": ""
+                            },
+                            "trackColor": ""
+                          },
+                          "style": {
+                            "classes": ""
+                          },
+                          "tabIndex": 0,
+                          "tel": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": true,
+                                  "value": "^(?:6553[0-5]|655[0-2]\\d|65[0-4]\\d{2}|6[0-4]\\d{3}|[1-5]?\\d{1,4})$"
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text-area": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "spellCheck": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrap": "soft"
+                          },
+                          "time-picker": {
+                            "defaultToNow": false,
+                            "format": "LT",
+                            "locale": "en",
+                            "maxTime": null,
+                            "minTime": null,
+                            "showSpinners": true,
+                            "style": {
+                              "classes": ""
+                            }
+                          },
+                          "toggle": {
+                            "align": "center",
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "type": "text",
+                          "url": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "visible": true
+                        }
+                      ]
+                    }
+                  ],
+                  "justify": "start",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "style": {
+                  "classes": ""
+                },
+                "visible": true
+              }
+            ]
+          },
+          "name": "url_config",
+          "validation": {
+            "isInvalid": true,
+            "status": {
+              "ip_proxy": "valueMissing",
+              "proxy_port": "valid"
+            }
+          }
+        },
+        "type": "ia.input.form"
+      },
+      {
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "basis": "400px"
+        },
+        "props": {
+          "data": [
+            {
+              "city": {
+                "align": "center",
+                "editable": true,
+                "justify": "left",
+                "style": {
+                  "backgroundColor": "#F7901D",
+                  "classes": "some-class"
+                },
+                "value": "Folsom"
+              },
+              "country": "United States",
+              "population": 77271
+            },
+            {
+              "city": "Helsinki",
+              "country": "Finland",
+              "population": 635591
+            },
+            {
+              "city": "Jakarta",
+              "country": "Indonesia",
+              "population": 10187595
+            },
+            {
+              "city": "Madrid",
+              "country": "Spain",
+              "population": 3233527
+            },
+            {
+              "city": "Prague",
+              "country": "Czech Republic",
+              "population": 1241664
+            },
+            {
+              "city": "San Diego",
+              "country": "United States",
+              "population": 1406630
+            },
+            {
+              "city": "San Francisco",
+              "country": "United States",
+              "population": 884363
+            },
+            {
+              "city": "Shanghai",
+              "country": "China",
+              "population": 24153000
+            },
+            {
+              "city": "Tokyo",
+              "country": "Japan",
+              "population": 13617000
+            },
+            {
+              "city": "Washington, DC",
+              "country": "United States",
+              "population": 658893
+            },
+            {
+              "city": "Wellington",
+              "country": "New Zealand",
+              "population": 405000
+            },
+            {
+              "city": "Delhi",
+              "country": "India",
+              "population": 11034555
+            },
+            {
+              "city": "Dhaka",
+              "country": "Bangladesh",
+              "population": 14399000
+            },
+            {
+              "city": "Lagos",
+              "country": "Nigeria",
+              "population": 16060303
+            },
+            {
+              "city": "Karachi",
+              "country": "Pakistan",
+              "population": 14910352
+            },
+            {
+              "city": "Istanbul",
+              "country": "Turkey",
+              "population": 14025000
+            },
+            {
+              "city": "Cairo",
+              "country": "Egypt",
+              "population": 10230350
+            },
+            {
+              "city": "Mexico City",
+              "country": "Mexico",
+              "population": 8974724
+            },
+            {
+              "city": "London",
+              "country": "United Kingdom",
+              "population": 8825001
+            },
+            {
+              "city": "New York City",
+              "country": "United States",
+              "population": 8622698
+            },
+            {
+              "city": "Tehran",
+              "country": "Iran",
+              "population": 8154051
+            },
+            {
+              "city": "Bogota",
+              "country": "Colombia",
+              "population": 7878783
+            },
+            {
+              "city": "Rio de Janeiro",
+              "country": "Brazil",
+              "population": 6429923
+            },
+            {
+              "city": "Riyadh",
+              "country": "Saudi Arabia",
+              "population": 5676621
+            },
+            {
+              "city": "Singapore",
+              "country": "Singapore",
+              "population": 5535000
+            },
+            {
+              "city": "Saint Petersburg",
+              "country": "Russia",
+              "population": 5191690
+            },
+            {
+              "city": "Sydney",
+              "country": "Australia",
+              "population": 5248790
+            },
+            {
+              "city": "Abidjan",
+              "country": "Ivory Coast",
+              "population": 4765000
+            },
+            {
+              "city": "Dar es Salaam",
+              "country": "Tanzania",
+              "population": 4364541
+            },
+            {
+              "city": "Wellington",
+              "country": "New Zealand",
+              "population": 405000
+            },
+            {
+              "city": "Los Angeles",
+              "country": "United States",
+              "population": 3884307
+            },
+            {
+              "city": "Berlin",
+              "country": "Germany",
+              "population": 3517424
+            },
+            {
+              "city": "Jeddah",
+              "country": "Saudi Arabia",
+              "population": 3456259
+            },
+            {
+              "city": "Kabul",
+              "country": "Afghanistan",
+              "population": 3414100
+            },
+            {
+              "city": "Mashhad",
+              "country": "Iran",
+              "population": 3001184
+            },
+            {
+              "city": "Milan",
+              "country": "Italy",
+              "population": 1359905
+            },
+            {
+              "city": "Kiev",
+              "country": "Ukraine",
+              "population": 2908703
+            },
+            {
+              "city": "Rome",
+              "country": "Italy",
+              "population": 2877215
+            },
+            {
+              "city": "Chicago",
+              "country": "United States",
+              "population": 2695598
+            },
+            {
+              "city": "Osaka",
+              "country": "Japan",
+              "population": 2691742
+            },
+            {
+              "city": "Bandung",
+              "country": "Indonesia",
+              "population": 2575478
+            },
+            {
+              "city": "Managua",
+              "country": "Nicaragua",
+              "population": 2560789
+            },
+            {
+              "city": "Paris",
+              "country": "France",
+              "population": 2229621
+            },
+            {
+              "city": "Shiraz",
+              "country": "Iran",
+              "population": 1869001
+            },
+            {
+              "city": "Manila",
+              "country": "Philippines",
+              "population": 1780148
+            },
+            {
+              "city": "Montreal",
+              "country": "Canada",
+              "population": 1649519
+            },
+            {
+              "city": "Guadalajara",
+              "country": "Mexico",
+              "population": 1495189
+            },
+            {
+              "city": "Dallas",
+              "country": "United States",
+              "population": 1317929
+            },
+            {
+              "city": "Yerevan",
+              "country": "Armenia",
+              "population": 1060138
+            },
+            {
+              "city": "Tunis",
+              "country": "Tunisia",
+              "population": 1056247
+            }
+          ],
+          "selection": {
+            "data": [
+              {
+                "city": "Lagos",
+                "country": "Nigeria",
+                "population": 16060303
+              }
+            ],
+            "selectedColumn": "city",
+            "selectedRow": 13
+          }
+        },
+        "type": "ia.display.table"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

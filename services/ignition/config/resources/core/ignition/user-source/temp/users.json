@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "uuid": "81475f02-f1f2-4515-b1d2-788a126fe55b",
+      "username": "luismdz",
+      "schedule": "Always",
+      "password": "[4be6c6d5]e09d5f14a69122da6135db44022739826bd5ff6c146851e0af394b2dbc7e5d5d",
+      "passwordDate": "20261120.214125179-0600",
+      "passwordHistory": [],
+      "createdDate": "20261120.214125178-0600",
+      "lastModifiedDate": "20261120.214125178-0600",
+      "roles": [
+        "aa0cc88d-f4a2-4794-a209-2307c2840844"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    }
+  ],
+  "roles": [
+    {
+      "uuid": "aa0cc88d-f4a2-4794-a209-2307c2840844",
+      "rolename": "Administrator",
+      "createdDate": "20261120.214125178-0600",
+      "lastModifiedDate": "20261120.214125178-0600"
+    }
+  ]
+}

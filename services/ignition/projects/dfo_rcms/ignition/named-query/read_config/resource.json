@@ -1,0 +1,33 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "docker_mysql1",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "e969c7d605ed8e09b78092d1b616ae555acd8a9ff12450ac5f579076c52aa71f",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "luismdz",
+      "timestamp": "2026-11-13T03:59:56Z"
+    }
+  }
+}

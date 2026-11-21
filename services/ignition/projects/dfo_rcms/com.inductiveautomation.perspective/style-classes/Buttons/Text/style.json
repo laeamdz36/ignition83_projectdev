@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "fontFamily": "Maersk",
+      "fontSize": "0.75vw",
+      "fontWeight": "bold",
+      "textShadow": "#BEB8B8",
+      "textTransform": "uppercase"
+    }
+  }
+}

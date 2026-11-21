@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "transparent",
+      "fontFamily": "Maersk",
+      "fontSize": "12px",
+      "fontWeight": "normal",
+      "textAlign": "justify"
+    }
+  }
+}

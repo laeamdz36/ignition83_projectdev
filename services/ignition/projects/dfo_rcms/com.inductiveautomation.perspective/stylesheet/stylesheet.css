@@ -1,0 +1,475 @@
+:root {
+	--nav-open-width: 300px;
+	--nav-closed-width: 50px;
+	--nav-width: 0px;
+	--topbar-height: 50px;
+	--nav-link-height: 40px;
+	--nav-link-Asset-height: 80px;
+
+	--nav--bgColor: var(--neutral-10);
+	--nav--color: var(--label);
+	--nav-section-open--bgColor: var(--neutral-30);
+	--nav-link-active--bgColor: var(--qual-5);
+	--nav-link-active--color: var(--white);
+	--nav-link-hover--bgColor: var(--qual-5);
+	/*--nav-link-hover--bgColor: var(--callToAction--hover);*/
+	--nav-link-hover--color: var(--nav-link-active--color);
+	--nav-button--bgColor: transparent;
+	--nav-button--color: var(--white);
+	--topbar--bgColor: #ff6441;
+	--topbar--color: var(--white);
+	--nav-padding-width: 5px;
+
+	--breakpoint-small: 650;
+	--breakpoint-medium: 1400;
+
+	/*Operational Status Colors;*/
+	--OPStatusRunning--color: #11c20d;
+	--OPStatusIdle--color: #ff8002;
+	--OPStatusBreakDown--color: #fd2701;
+	--OPStatusOutOfService--color: #cc2a0f;
+	--OPStatusAvailable--color: #135e6d;
+	--OPStatusDisconnected--color:#000000;
+
+	
+	/*Charger Status Colors;*/
+	--CSStatusCharging--color:    #11c20d; /*Green*/
+	--CSStatusFinishing--color:   #ff8002; /*orange*/
+	--CSStatusError--color:       #cc2a0f; /*Red*/
+	--CSStatusAvailable--color:   #135e6d; /*Blue*/
+	--CSStatusPreparing--color:   #11c20d; /*Green*/
+	--CSStatusDisconnected--color:#000000; /*Black*/
+
+	
+	/* Charging strategy status Colors*/
+	--FCMStatusActive--color: 	#ff6441;	/*APM orange*/
+	--FCMStatusInactive--color: 	#bdbdbd;	/*Grey*/
+	
+	/*Cycles Status Colors;*/
+	--CyclesStatusRunning--color: 	#11c20d;	/*Green*/
+	--CyclesStatusException--color: 	#cc2a0f;	/*Red*/
+	--CyclesStatusPaused--color: 		#3F9BFF;	/*Blue*/
+	--CyclesStatusStopped--color:		#000000;	/*Black*/
+
+	
+}
+
+/* DOCKS */
+.docked-view-left {
+	width: auto !important;OPStatusRunning
+	height: calc(100% - var(--topbar-height)) !important;
+}
+
+/* NAV */
+.psc-nav {
+	width: var(--nav-width);
+	border-right: 1px solid var(--border);
+	background-color: var(--nav--bgColor);
+	color: var(--nav--color);
+	padding: 10px 0px;
+	transition: all 0.2s ease-in-out;
+}
+
+.psc-nav-open {
+	width: var(--nav-open-width);
+	transition: all 0.2s ease-in-out;
+}
+
+.psc-nav-button {
+	background-color: var(--nav-button--bgColor);
+	color: var(--nav-button--color);
+}
+
+/* NAV LOGO */
+.psc-nav-logo-1 {
+	transition: all 0.2s ease-in-out 0.5s;
+	transform: scale(1.5);
+}
+
+.psc-nav-logo-2 {
+	max-width: 0;
+	opacity: 0;
+}
+
+.psc-nav-open .psc-nav-logo-1 {
+	max-width: 0;
+	opacity: 0;
+	transition: all 0.2s ease-in-out 0.3s;
+}
+
+.psc-nav-open .psc-nav-logo-2 {
+	max-width: 256px;
+	opacity: 1;
+	transition-delay: 0.2s;
+}
+
+/* NAV SECTION */
+.psc-nav-section {
+	max-height: var(--nav-link-height);
+	gap: 5px;
+}
+
+.psc-nav-open .psc-nav-section-open {
+	max-height: 1000px;
+	transition: max-height 0.4s ease-in-out;
+	color: var(--label);
+	border-radius: var(--borderRadius);
+	background-color: var(--nav-section-open--bgColor);
+}
+
+.psc-nav-open .psc-nav-section .psc-nav-repeater {
+	gap: 5px;
+}
+
+.psc-nav:not(.psc-nav-open) .psc-nav-section .psc-nav-repeater .psc-nav-link>svg:nth-child(1) {
+	transition: visibility 0.2s ease-in-out 0.2s;
+}
+
+.psc-nav-open .psc-nav-section .psc-nav-repeater .psc-nav-link>svg:nth-child(1) {
+	visibility: hidden;
+}
+
+
+/* NAV LINK */
+.psc-nav-link {
+	height: var(--nav-link-height);
+	border-radius: var(--borderRadius);
+	gap: 5px;
+}
+
+.psc-nav-link .ia_labelComponent,
+.psc-nav-link>svg:nth-child(3) {
+	opacity: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	transition: all 0.1s ease-in-out;
+}
+
+.psc-nav-open .psc-nav-section-open .psc-nav-link .ia_labelComponent,
+.psc-nav-open .psc-nav-link .ia_labelComponent {
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out 0.2s;
+}
+
+.psc-nav-section-open .psc-nav-link>svg:nth-child(3),
+.psc-nav-section-open .psc-nav-link>svg:nth-child(3) {
+	opacity: 1;
+	transform: rotate(90deg);
+	transition: transform 0.2s ease-in-out;
+}
+
+.psc-nav-open .psc-nav-section svg {
+	opacity: 1;
+}
+
+.psc-nav-link:hover,
+.psc-nav-link.psc-selected:hover {
+	color: var(--nav-link-hover--color);
+	background-color: var(--nav-link-hover--bgColor);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.psc-nav-link.psc-selected {
+	background-color: var(--nav-link-active--bgColor);
+	color: var(--nav-link-active--color);
+	transition: all 0.2s ease-in-out;
+}
+
+.psc-nav:not(.psc-nav-open) .psc-nav-section .psc-nav-link.psc-selected-parent {
+	color: var(--nav-link-active--color);
+	background-color: var(--nav-link-active--bgColor);
+}
+.psc-nav .psc-nav-section:not(.psc-nav-section-open) .psc-nav-link.psc-selected-parent {
+	color: var(--nav-link-active--color);
+	background-color: var(--nav-link-active--bgColor);
+}
+
+.psc-nav:not(.psc-nav-open) .psc-not-a-link {
+	max-height: 0;
+}
+
+.psc-nav:not(.psc-nav-open) .psc-not-a-link .ia_labelComponent {
+	opacity: 0;
+}
+
+.psc-nav-open .psc-nav-link .ia_labelComponent {
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out 0.2s;
+}
+
+.psc-not-a-link:hover {
+	color: var(--label);
+	background-color: transparent !important;
+	cursor: default !important;
+	transition: all 0.2s ease-in-out;
+}
+
+/* TAB BUTTON */
+
+/* BOTÓN ESTILO - QC Button */
+.tab-button {
+    width: 100px; /* Ajusta según tu necesidad */
+    height: 100px; /* Ajusta según tu necesidad */
+    background-color: var(--qc-button-bg, #ffffff); /* Color de fondo */
+    border: 2px solid var(--qc-button-border, #ccc); /* Borde inicial */
+    border-radius: 10px; /* Bordes redondeados */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--qc-button-text, #000); /* Color del texto */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Cambio de color al pasar el mouse */
+.tab-button:hover {
+    background-color: var(--qc-button-hover-bg, #e0e0e0); /* Color de fondo al hacer hover */
+    border-color: var(--qc-button-hover-border, #888); /* Cambio de borde */
+    color: var(--qc-button-hover-text, #333); /* Cambio de color del texto */
+}
+
+/* Cambio cuando el botón está seleccionado */
+.tab-button.selected {
+    background-color: var(--qc-button-active-bg, #007bff); /* Fondo azul cuando está seleccionado */
+    border-color: var(--qc-button-active-border, #0056b3);
+    color: var(--qc-button-active-text, #ffffff); /* Texto en blanco */
+}
+
+/* NAV TREE */
+.psc-nav .tree {
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out 0.2s;
+}
+
+.psc-nav .tree .node-wrapper {
+	display: block;
+}
+
+.psc-nav-open .psc-nav-section-open .tree {
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out 0.2s;
+}
+
+.psc-nav .ia_treeComponent__node {
+	border-radius: var(--borderRadius);
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.psc-nav .tree-row {
+	margin-bottom: 5px;
+}
+
+.psc-nav .ia_treeComponent__node:hover {
+	color: var(--nav-link-active--color);
+	background-color: var(--nav-link-hover--bgColor);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.psc-nav .ia_treeComponent__node--selected {
+	background-color: var(--nav-link-active--bgColor);
+	color: var(--nav-link-active--color);
+	transition: all 0.2s ease-in-out;
+}
+
+.psc-nav .ia_treeComponent__node .tree-item {
+	height: var(--nav-link-height) !important;
+}
+
+.psc-nav .ia_treeComponent__node .tree-item-label {
+	font-weight: normal;
+}
+
+.psc-nav .ia_treeComponent__alignmentGuide,
+.psc-nav .terminal-node .ia_treeComponent__node__icon {
+	display: none;
+}
+
+.psc-nav .ia_treeComponent__node .node-icon,
+.psc-nav .ia_treeComponent__node .expand-icon {
+	fill: var(--label);
+}
+
+.psc-nav .ia_treeComponent__node:hover .node-icon,
+.psc-nav .ia_treeComponent__node:hover .expand-icon {
+	fill: var(--nav-link-active--color);
+}
+
+.psc-nav .ia_treeComponent__node--selected .node-icon,
+.psc-nav .ia_treeComponent__node--selected .expand-icon {
+	fill: var(--nav-link-active--color);
+}
+
+/* Overrides the default scrollbar styles */
+.psc-nav::-webkit-scrollbar {
+	width: 3px;
+	scrollbar-width: thin;
+	scrollbar-color: var(--neutral-20) var(--neutral-90);
+}
+
+.psc-nav::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.psc-nav::-webkit-scrollbar-thumb {
+	background: var(--neutral-50);
+	border-radius: 1px;
+}
+
+.psc-nav::-webkit-scrollbar-thumb:hover {
+	background: var(--neutral-70);
+}
+
+/* Override the rules governing the dock mode (push or cover) */
+.center.view-parent {
+	max-height: calc(100% - var(--topbar-height)) !important;
+	max-width: calc(100% - var(--nav-width)) !important;
+	margin: var(--topbar-height) 0px 0px var(--nav-width) !important;
+	transition: all 0.2s ease-in-out !important;
+}
+
+/* TAB BUTTON */
+/* ACTIVE TAB TEXT */
+.menu-classic-tab.tab-active span {
+  color: black !important;
+}
+
+/* ACTIVE TAB HOVER */
+.menu-classic-tab.tab-active:hover span,
+.menu-classic-tab.tab-active:hover svg {
+  color: white !important;
+}
+
+/* IMAGES */
+/* Images zoom hover */
+img {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform: scale(1);
+}
+
+img:hover {
+  transform: scale(1.04);
+}
+
+.ia_popup[id*="transparent"] {
+	background-color: rgba(255,255, 255, 0.7) !important;
+    	box-shadow: 0 2px 6px rgba(0, 0, 0, .3) !important;
+    	border: 2px solid #ccc;
+	border-radius: 5px;
+
+	}
+/*GRID
+
+/* Product Form
+.psc-product-form-grid {
+    display: grid;
+    overflow: auto;
+    gap: 20px;
+    grid-template-areas:
+        "header header header header"
+        "productName productName . ."
+        "description description description description"
+        "category category uploadPicture uploadPicture"
+        "supplier supplier uploadPicture uploadPicture"
+        "price stockQty picture picture"
+        "status status picture picture"
+        ". . picture picture"
+        "cancel . . save";
+    grid-template-columns: 200px 1fr 1fr 200px;
+    grid-template-rows: 60px repeat(6, minmax(62px, auto)) 1fr 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+@media (max-width: 551px) {
+    .psc-product-form-grid {
+        display: grid;
+        overflow: auto;
+        gap: 20px;
+        grid-template-areas:
+            "header header"
+            "productName productName"
+            "description description"
+            "category category"
+            "supplier supplier"
+            "price stockQty"
+            "status status"
+            "uploadPicture uploadPicture"
+            "picture picture"
+            "cancel save";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 60px repeat(8, minmax(62px, auto)) 40px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+}
+
+/* Product Management 
+.psc-product-management-grid {
+    display: grid;
+    overflow: auto;
+    gap: 10px;
+    grid-template-areas:
+        "header header header header"
+        "productName category . ."
+        "newProduct editProduct productCount refresh"
+        "table table table table";
+    grid-template-columns: 200px 200px 1fr 40px;
+    grid-template-rows: 60px auto 40px 1fr;
+    padding: 10px;
+}
+
+@media (max-width: 500px) {
+    .psc-product-management-grid {
+        display: grid;
+        overflow: auto;
+        gap: 10px;
+        grid-template-areas:
+            "header header"
+            "newProduct newProduct"
+            "editProduct editProduct"
+            "productName productName"
+            "category category"
+            "productCount refresh"
+            "table table";
+        grid-template-columns: 1fr 40px;
+        grid-template-rows: 60px repeat(2, 40px) repeat(2, minmax(62px, auto)) 40px calc(100vh - 20px);
+        padding: 10px;
+    }
+}*/
+
+
+@font-face {
+    font-family: 'Maersk';
+    src: url('/data/perspective/fonts/Maersk-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+ 
+@font-face {
+    font-family: 'Maersk';
+    src: url('/data/perspective/fonts/Maersk-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+ 
+@font-face {
+    font-family: 'Maersk';
+    src: url('/data/perspective/fonts/Maersk-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+
+

@@ -1,0 +1,24 @@
+{
+  "base": {
+    "style": {
+      "borderColor": "#FFB22A",
+      "borderStyle": "none",
+      "borderWidth": "0.25px",
+      "color": "var(--neutral-100)",
+      "fontFamily": "Roboto",
+      "fontSize": "14px",
+      "fontWeight": "lighter",
+      "marginRight": "3px",
+      "marginTop": "3px",
+      "textAlign": "justify-all"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "cursor": "none"
+      }
+    }
+  ]
+}

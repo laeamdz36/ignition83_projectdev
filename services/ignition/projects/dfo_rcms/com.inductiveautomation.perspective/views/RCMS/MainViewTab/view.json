@@ -1,0 +1,169 @@
+{
+  "custom": {
+    "activate_bar": false,
+    "assets": {
+      "$": [
+        "ds",
+        192,
+        1795205141806
+      ],
+      "$columns": [
+        {
+          "data": [
+            "QC",
+            "QC",
+            "RTG",
+            "RTG",
+            "RTG",
+            "RTG",
+            "RTG",
+            "RTG",
+            "RTG"
+          ],
+          "name": "asset_type",
+          "type": "String"
+        },
+        {
+          "data": [
+            "QC0001",
+            "QC0002",
+            "RTG0001",
+            "RTG0002",
+            "RTG0003",
+            "RTG0004",
+            "RTG0005",
+            "RTG0006",
+            "RTG0007"
+          ],
+          "name": "asset_name",
+          "type": "String"
+        }
+      ]
+    },
+    "config_data": {
+      "asset_name": "QC0001",
+      "asset_type": "QC",
+      "autoconnect": true,
+      "cms_ip": "192.168.10.160",
+      "main_page": "remote.html",
+      "proxy_ip": "10.10.115.180",
+      "proxy_port": 6080,
+      "reconnect": true,
+      "reconnect_delay": 7000,
+      "resize": "scale",
+      "shared": true
+    },
+    "selectedRow": {
+      "asset_name": "QC0001",
+      "asset_type": "QC"
+    }
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\n\timport re\n\t# create the array for the cms assets\n\t\n\tscope \u003d [\"QC\", \"RTG\"]\n\troot_path \u003d \"[Aggregator]asset\"\n\tscope_filters \u003d [{\"name\": \"*{}*\".format(asset_type)} for asset_type in scope]\n\ttags \u003d []\n\tfor f in scope_filters:\n\t    tags.extend(system.tag.browse(root_path, f))\n\t    \n\tassets \u003d []\n\tfor tag_folder in tags:\n\t\tpath \u003d tag_folder.get(\"fullPath\")\n\t\ttags \u003d system.tag.browse(path)\n\t\tassets.extend([str(tag[\"name\"]) for tag in tags])\n\t\n\tdef get_asset_prefix(tag_name):\n\t    # Busca una o más letras al inicio de la cadena\n\t    match \u003d re.match(r\u0027^([A-Za-z]+)\u0027, tag_name)\n\t    return match.group(1) if match else None\n\t\t\n\t# create dataset of assets\n\theaders \u003d [\"asset_type\", \"asset_name\"]\n\trows \u003d [[get_asset_prefix(asset), asset] for asset in assets]\n\t\n\tself.view.custom.assets \u003d system.dataset.toDataset(headers, rows)"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1093,
+      "width": 1279
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "rcms_history"
+                },
+                "position": {
+                  "tabIndex": 1
+                },
+                "props": {
+                  "path": "RCMS/Desktop/Embedded/Assets/RcmsHistory"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "rcms_config"
+                },
+                "props": {
+                  "path": "RCMS/Desktop/Embedded/Assets/RcmsConfig"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "TabContainer"
+            },
+            "position": {
+              "basis": "100%"
+            },
+            "props": {
+              "currentTabIndex": 1,
+              "style": {
+                "borderStyle": "none",
+                "boxShadow": "none"
+              },
+              "tabSize": {
+                "height": 75,
+                "width": 100
+              },
+              "tabs": [
+                {
+                  "viewParams": {
+                    "icon_path": "material/settings",
+                    "tab_name": "Config"
+                  },
+                  "viewPath": "RCMS/Desktop/Embedded/utils/IconTab"
+                },
+                {
+                  "viewParams": {
+                    "icon_path": "material/history",
+                    "tab_name": "History"
+                  },
+                  "viewPath": "RCMS/Desktop/Embedded/utils/IconTab"
+                }
+              ]
+            },
+            "type": "ia.container.tab"
+          }
+        ],
+        "meta": {
+          "name": "ScreenContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "padding": "5px",
+            "paddingBottom": "1px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "height": "100%"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

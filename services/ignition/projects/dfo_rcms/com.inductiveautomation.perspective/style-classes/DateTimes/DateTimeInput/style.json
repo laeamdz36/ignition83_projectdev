@@ -1,0 +1,18 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "backgroundColor": "var(--topbar--bgColor)",
+        "color": "#FFFFFF",
+        "cursor": "pointer",
+        "fontFamily": "Maersk",
+        "fontSize": "16px",
+        "fontWeight": "bold"
+      }
+    }
+  ]
+}

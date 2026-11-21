@@ -1,0 +1,7 @@
+{
+  "title": "",
+  "description": "env for develop rcms screen",
+  "enabled": true,
+  "inheritable": true,
+  "parent": "core"
+}

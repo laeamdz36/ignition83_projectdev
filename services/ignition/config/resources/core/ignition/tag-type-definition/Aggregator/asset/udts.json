@@ -1,0 +1,50 @@
+[
+  {
+    "name": "QC",
+    "parameters": {
+      "assetNum": {
+        "dataType": "Integer",
+        "value": null
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "typeId": null,
+    "tags": [
+      {
+        "dataType": "String",
+        "expression": "{assetType} + numberFormat({assetNum}, \"0000\")",
+        "name": "QC",
+        "tagType": "AtomicTag",
+        "valueSource": "expr"
+      }
+    ]
+  },
+  {
+    "name": "RTG",
+    "parameters": {
+      "assetNum": {
+        "dataType": "Integer",
+        "value": null
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "typeId": null,
+    "tags": [
+      {
+        "dataType": "String",
+        "expression": "{assetType} + numberFormat({assetNum}, \"0000\")",
+        "name": "RTG",
+        "tagType": "AtomicTag",
+        "valueSource": "expr"
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "transparent",
+      "fontFamily": "Maersk",
+      "fontWeight": "normal",
+      "textAlign": "center"
+    }
+  }
+}

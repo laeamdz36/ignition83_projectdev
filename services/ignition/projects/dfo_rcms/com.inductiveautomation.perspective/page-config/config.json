@@ -1,0 +1,19 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "cms_connection"
+    },
+    "/rcms_view": {
+      "title": "",
+      "viewPath": "RCMS/MainViewTab"
+    },
+    "/url_test": {
+      "title": "",
+      "viewPath": "view_test"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

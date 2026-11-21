@@ -1,0 +1,32 @@
+[
+  {
+    "name": "QC0001",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "1"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "QC"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/QC"
+  },
+  {
+    "name": "QC0002",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "2"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "QC"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/QC"
+  }
+]

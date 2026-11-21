@@ -1,0 +1,107 @@
+[
+  {
+    "name": "RTG0001",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "1"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "RTG"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/RTG"
+  },
+  {
+    "name": "RTG0002",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "2"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "RTG"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/RTG"
+  },
+  {
+    "name": "RTG0003",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "3"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "RTG"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/RTG"
+  },
+  {
+    "name": "RTG0004",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "4"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "RTG"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/RTG"
+  },
+  {
+    "name": "RTG0005",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "5"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "RTG"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/RTG"
+  },
+  {
+    "name": "RTG0006",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "6"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "RTG"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/RTG"
+  },
+  {
+    "name": "RTG0007",
+    "parameters": {
+      "assetNum": {
+        "dataType": "String",
+        "value": "7"
+      },
+      "assetType": {
+        "dataType": "String",
+        "value": "RTG"
+      }
+    },
+    "tagType": "UdtInstance",
+    "typeId": "asset/RTG"
+  }
+]

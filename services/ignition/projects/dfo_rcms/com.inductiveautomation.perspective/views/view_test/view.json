@@ -1,0 +1,851 @@
+{
+  "custom": {
+    "current_config": {
+      "asset_name": "RTG0003",
+      "asset_type": "RTG",
+      "autoconnect": true,
+      "cms_ip": "192.168.10.123",
+      "main_page": "remote.hmtl",
+      "proxy_ip": "192.168.10.136",
+      "proxy_port": 6080,
+      "reconnect": true,
+      "reconnect_delay": 7000,
+      "resize": "scale",
+      "shared": true
+    },
+    "dd_selection": "RTG0003",
+    "history_date_range": {
+      "end_date": null,
+      "start_date": 1794895200000
+    },
+    "options": [
+      {
+        "label": "QC0001",
+        "value": "QC0001"
+      },
+      {
+        "label": "QC0002",
+        "value": "QC0002"
+      },
+      {
+        "label": "RTG0001",
+        "value": "RTG0001"
+      },
+      {
+        "label": "RTG0002",
+        "value": "RTG0002"
+      },
+      {
+        "label": "RTG0003",
+        "value": "RTG0003"
+      },
+      {
+        "label": "RTG0004",
+        "value": "RTG0004"
+      },
+      {
+        "label": "RTG0005",
+        "value": "RTG0005"
+      },
+      {
+        "label": "RTG0006",
+        "value": "RTG0006"
+      },
+      {
+        "label": "RTG0007",
+        "value": "RTG0007"
+      }
+    ],
+    "url": "http://192.168.10.136:6080/remote.hmtl?\u0026adp\u003df7087a5f-a01c-4e32-bacb-b7be9f4b5f7c\u0026autoconnect\u003dtrue\u0026resize\u003dscale\u0026shared\u003dtrue\u0026reconnect\u003dtrue\u0026reconnect_delay\u003d7000"
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\timport re\n\t# create the array for the cms assets\n\t\n\tscope \u003d [\"QC\", \"RTG\"]\n\troot_path \u003d \"[Aggregator]asset\"\n\tscope_filters \u003d [{\"name\": \"*{}*\".format(asset_type)} for asset_type in scope]\n\ttags \u003d []\n\tfor f in scope_filters:\n\t    tags.extend(system.tag.browse(root_path, f))\n\t    \n\tassets \u003d []\n\tfor tag_folder in tags:\n\t\tpath \u003d tag_folder.get(\"fullPath\")\n\t\ttags \u003d system.tag.browse(path)\n\t\tassets.extend([str(tag[\"name\"]) for tag in tags])\n\t\n\tdef get_asset_prefix(tag_name):\n\t    # Busca una o más letras al inicio de la cadena\n\t    match \u003d re.match(r\u0027^([A-Za-z]+)\u0027, tag_name)\n\t    return match.group(1) if match else None\n\t\t\n\t# create the options array\n\toptions \u003d [{\"value\": asset, \"label\": asset} for asset in assets]\n\tself.view.custom.options \u003d options"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.dd_selection": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer/Dropdown.props.value"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.history_date_range": {
+      "binding": {
+        "config": {
+          "struct": {
+            "end_date": "if({/root/date_inputs/dti_end_date.props.value} !\u003d None, toMillis({/root/date_inputs/dti_end_date.props.value}), None)",
+            "start_date": "if({/root/date_inputs/dti_start_date.props.value} !\u003d None, toMillis({/root/date_inputs/dti_start_date.props.value}), None)"
+          },
+          "waitOnAll": true
+        },
+        "type": "expr-struct"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1403,
+      "width": 1617
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "51px"
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          },
+          "text": "Get URL"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "137px"
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.options"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "padding": "10px"
+              },
+              "value": "RTG0003"
+            },
+            "type": "ia.input.dropdown"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t# retrieve data for the asset name and return the url\n\tselection \u003d self.view.custom.dd_selection\n\t\n\tparams \u003d {\"asset_name\": selection}\n\tconfig \u003d dfo_rcms.dev1.get_config(params)\n\tself.view.custom.current_config \u003d config\n\t# get the url \u0027dfov1\u0027\n\turl_type \u003d \"dfov1\"\n\t\n\tlogger \u003d system.util.getLogger(\"rcms_dev\")\n\t# get session metadata\n\tip_client \u003d str(self.session.props.host)\n\tclient_session \u003d dict(self.session.props.auth)\n\tlogger.info(\"Client session: %s\" % (client_session))\n\tconfig[\"ip_client\"] \u003d ip_client\n\tconfig[\"client_session\"] \u003d client_session\n\turl \u003d dfo_rcms.dev1.get_url(url_type, config)\n\tself.view.custom.url \u003d url"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "112px"
+            },
+            "props": {
+              "style": {
+                "padding": "10px"
+              },
+              "text": "Get url"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "1206px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.url"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": 14,
+                "padding": "10px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "88px"
+        },
+        "props": {
+          "alignItems": "center",
+          "style": {
+            "gap": "10px",
+            "padding": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "basis": "569px"
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "mode": "direct",
+                    "polling": {
+                      "enabled": true,
+                      "rate": "5"
+                    },
+                    "queryPath": "rcms/get_all_hist",
+                    "returnFormat": "json"
+                  },
+                  "type": "query"
+                }
+              }
+            },
+            "type": "ia.display.table"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "435px"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "dti_start_date"
+            },
+            "position": {
+              "basis": "253px"
+            },
+            "propConfig": {
+              "props.value": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\t# Date validation\n\t# avoid user selection above 1 month\n\tstart_date \u003d self.props.value\n\tend_date \u003d self.getSibling(\"dti_end_date\").props.value\n\tif end_date is not None:\n\t\tdiff \u003d system.date.daysBetween(start_date, end_date)\n\telse:\n\t\treturn\n\tpopup_view \u003d \"popups/notify_result\"\n\tpopup_parmas \u003d {\"icon_path\": \"material/done\", \"header\":\"Date Range Invalid\", \"text_feedback\": \"Diff range: {}\".format(diff)}\n\tif diff \u003e 30 or diff \u003c 0:\n\t\t# open pop-up, may be no need, i left deactivate and only we clean the end_date value\n\t\tself.getSibling(\"dti_end_date\").props.value \u003d None\n\t\t#system.perspective.openPopup(\"register_result\", popup_view, params \u003d popup_parmas, showCloseIcon \u003d True, resizable \u003d False, draggable\u003d False)\n\t\t"
+                }
+              }
+            },
+            "props": {
+              "formattedValue": "Nov 17, 2026 12:00 AM",
+              "style": {
+                "padding": "5px"
+              },
+              "value": {
+                "$": [
+                  "ts",
+                  0,
+                  1795127518473
+                ],
+                "$ts": 1794895200000
+              }
+            },
+            "type": "ia.input.date-time-input"
+          },
+          {
+            "meta": {
+              "name": "dti_end_date"
+            },
+            "position": {
+              "basis": "253px"
+            },
+            "propConfig": {
+              "props.maxDate": {
+                "binding": {
+                  "config": {
+                    "expression": "dateArithmetic({view.custom.history_date_range.start_date}, 1, \"month\")"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.minDate": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.history_date_range.start_date"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "formattedValue": "Jun 4, 2026 12:00 AM",
+              "style": {
+                "padding": "5px"
+              }
+            },
+            "type": "ia.input.date-time-input"
+          }
+        ],
+        "meta": {
+          "name": "date_inputs"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "props": {
+          "alignItems": "center",
+          "style": {
+            "gap": "15px",
+            "padding": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.history_date_range"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\t\t\n\tif value[\"start_date\"] \u003d\u003d None or value[\"end_date\"] \u003d\u003d None:\n\t\t\treturn None\n\tdata \u003d system.db.execQuery(\"rcms/history_parser\", value)\n\treturn data",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY HH:mm:ss",
+                  "editable": false,
+                  "field": "created_at",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Creation timestamp"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "date",
+                  "resizable": false,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "created_by_ip",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Created by IP"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "string",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "used_at",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Used timestamp"
+                  },
+                  "justify": "auto",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "used",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Is used"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "boolean",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "user",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "User"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "string",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ]
+            },
+            "type": "ia.display.table"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "575px"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "gap": "10px",
+        "padding": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
