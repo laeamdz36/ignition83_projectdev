@@ -14,7 +14,7 @@ services:
       - 5088:8088
       - 5043:8043
     networks:
-      - ot-network
+      - ot-network-cicd
     volumes:
       - ./services/ignition/config:/usr/local/bin/ignition/data/config
       - ./services/ignition/projects:/usr/local/bin/ignition/data/projects
