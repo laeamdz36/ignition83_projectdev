@@ -9,6 +9,7 @@ This repository is the infrastructure and configuration source for a new Ignitio
 ├── docker-compose.yml
 ├── dockerfile.ignGit
 ├── README.md
+├── .env.example
 ├── scripts/
 │   └── prepare-ignition-mounts.sh
 ├── provisioning/
@@ -39,11 +40,32 @@ Both bind mounts are read/write. The service publishes Gateway HTTP on host port
 
 There is **no named volume** in the current Compose configuration. The mounted configuration and projects persist on the host and are versioned here. Other data under `/usr/local/bin/ignition/data` lives in the container's writable layer; it can be lost when the container is removed or recreated. Back up any runtime data that matters before replacing the container.
 
+## Environment variables
+
+Compose injects the Gateway's environment from the root `.env` file through the service's `env_file` setting. The current values are:
+
+| Variable | Purpose |
+| --- | --- |
+| `ACCEPT_IGNITION_EULA` | Accepts the Inductive Automation software license terms when set to `Y`. |
+| `IGNITION_EDITION` | Selects the Gateway edition; currently `standard`. |
+| `TZ` | Sets the container timezone; currently `America/Mexico_City`. |
+
+The local `.env` is ignored by Git. `.env.example` is the versioned template for a fresh clone and for future additions. Before first deployment, create the local file without overwriting an existing one:
+
+```bash
+test -f .env || cp .env.example .env
+```
+
+When adding an image-specific variable, first check the [official Ignition Docker Image documentation](https://docs.inductiveautomation.com/docs/8.3/platform/docker-image). Add the variable to `.env.example` with a safe, non-secret development value, add the required value to the Docker host's untracked `.env`, and keep `env_file` in Compose. Do not put credentials or production secrets in the template or repository; materialize those from the CI/CD secret store on the deployment host.
+
+Environment changes take effect when the container is recreated. Before recreating it with `docker compose up -d --force-recreate gateway`, back up any required runtime data outside the bind mounts.
+
 ## First deployment
 
 Run these steps from the repository root on the Docker host. The permission helper must be run from Bash (Git Bash or WSL on Windows):
 
 ```bash
+test -f .env || cp .env.example .env
 docker compose config --quiet
 docker compose build gateway
 bash ./scripts/prepare-ignition-mounts.sh
@@ -88,7 +110,7 @@ git switch -c feature/describe-change
 # Edit configuration or project resources
 git status
 git diff
-git add docker-compose.yml dockerfile.ignGit README.md .gitignore scripts provisioning services/ignition/config services/ignition/projects
+git add docker-compose.yml dockerfile.ignGit README.md .gitignore .env.example scripts provisioning services/ignition/config services/ignition/projects
 git diff --cached
 git commit -m "Describe the Ignition change"
 git push -u origin feature/describe-change
@@ -132,4 +154,5 @@ For future expansion, place each Gateway's `config/` and `projects/` under a dis
 
 - [Ignition 8.3 Version and Source Control Guide](https://www.docs.inductiveautomation.com/docs/8.3/tutorials/version-control-guide)
 - [Ignition 8.3 Gateway Folder Structure](https://www.docs.inductiveautomation.com/docs/8.3/appendix/reference-pages/gateway-folder-structure)
+- [Ignition Docker Image documentation — environment variables and runtime arguments](https://docs.inductiveautomation.com/docs/8.3/platform/docker-image)
 - [Official Ignition Docker image](https://hub.docker.com/r/inductiveautomation/ignition)

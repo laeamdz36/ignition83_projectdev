@@ -18,11 +18,8 @@ services:
     volumes:
       - ./services/ignition/config:/usr/local/bin/ignition/data/config:rw
       - ./services/ignition/projects:/usr/local/bin/ignition/data/projects:rw
-    # env_file: ignition.env  # optionally specify variables in a file, or using `environment:` below
-    environment:
-      - ACCEPT_IGNITION_EULA=Y
-      - IGNITION_EDITION=standard
-      - TZ=America/Mexico_City # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+    env_file:
+      - .env
     command: >
       -n ign-STD83CICD_01 -m 2048 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
 
