@@ -10,9 +10,9 @@ services:
     container_name: DEV_IgnitionSTD83_CICD
     restart: no
     ports:
-      # <puerto_host>:<puerto_contenedor>
-      - 3088:8088
-      - 3043:8043
+      # <port_host>:<port_contenedor>
+      - 5088:8088
+      - 5043:8043
     networks:
       - ot-network
     volumes:
@@ -27,4 +27,4 @@ services:
       -n ign-STD83CICD_01 -m 2048 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
 
 networks:
-  ot-network:
+  ot-network_cicd:
