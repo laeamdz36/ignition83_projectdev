@@ -1,4 +1,4 @@
-name: ubu_ign8_3
+name: ubu_ign8_3_cicd
 
 services:
   # Ignition Gateway
@@ -24,7 +24,7 @@ services:
       - IGNITION_EDITION=standard
       - TZ=America/Mexico_City # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
     command: >
-      -n ign-STD83_01 -m 2048 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
+      -n ign-STD83CICD_01 -m 2048 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
 
 networks:
   ot-network:
