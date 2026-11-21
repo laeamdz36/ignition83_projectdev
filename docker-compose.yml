@@ -27,4 +27,4 @@ services:
       -n ign-STD83CICD_01 -m 2048 -- wrapper.java.initmemory=512 -Dignition.allowunsignedmodules=true
 
 networks:
-  ot-network_cicd:
+  ot-network-cicd:
