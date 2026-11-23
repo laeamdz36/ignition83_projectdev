@@ -1,0 +1,36 @@
+{
+  "connectURL": "jdbc:sqlserver://192.168.10.102",
+  "connectionProps": "databaseName\u003dDEV",
+  "connectionResetParams": "",
+  "defaultTransactionLevel": "DEFAULT",
+  "driver": "Microsoft SQLServer",
+  "evictionRate": -1,
+  "evictionTests": 3,
+  "evictionTime": 1800000,
+  "failoverMode": "STANDARD",
+  "failoverProfile": "",
+  "includeSchemaInTableName": false,
+  "password": {
+    "data": {
+      "ciphertext": "8f7mHBX_7fz1OonqHQ",
+      "encrypted_key": "Kg6ipF4QyDXq0izozn5k89ylhFaBgta1pZWQCyv2BqjnsSuv2KDUzA",
+      "iv": "fT6wsIXwZL5_kJzt",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzk1NDQ5MzgxLCJ6aXAiOiJERUYifQ",
+      "tag": "XQUDZf3EqB73mIzOGz73Gw"
+    },
+    "type": "Embedded"
+  },
+  "poolInitSize": 0,
+  "poolMaxActive": 8,
+  "poolMaxIdle": 8,
+  "poolMaxWait": 5000,
+  "poolMinIdle": 0,
+  "slowQueryLogThreshold": 60000,
+  "testOnBorrow": true,
+  "testOnReturn": false,
+  "testWhileIdle": false,
+  "translator": "MSSQL",
+  "username": "generic_dev1",
+  "validationQuery": "SELECT 1",
+  "validationSleepTime": 10000
+}

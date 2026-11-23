@@ -5,7 +5,7 @@
       "$": [
         "ds",
         192,
-        1795206158844
+        1795464495168
       ],
       "$columns": [
         {
@@ -41,34 +41,34 @@
       ]
     },
     "config_data": {
-      "asset_name": "RTG0007",
-      "asset_type": "RTG",
+      "asset_name": "QC0001",
+      "asset_type": "QC",
       "autoconnect": true,
-      "cms_ip": "192.168.10.145",
-      "main_page": "remote.hmtl",
-      "proxy_ip": "192.168.10.115",
+      "cms_ip": "192.168.10.120",
+      "main_page": "remote.html",
+      "proxy_ip": "192.168.10.121",
       "proxy_port": 6080,
       "reconnect": true,
-      "reconnect_delay": 1,
+      "reconnect_delay": 5000,
       "resize": "scale",
       "shared": false
     },
     "params": {
-      "asset_name": "RTG0007",
-      "asset_type": "RTG",
-      "autoconnect": true,
-      "cms_ip": "192.168.10.145",
-      "main_page": "remote.hmtl",
-      "proxy_ip": "192.168.10.115",
+      "asset_name": "QC0001",
+      "asset_type": "QC",
+      "autoconnect": false,
+      "cms_ip": "192.168.10.120",
+      "main_page": "remote.html",
+      "proxy_ip": "192.168.10.121",
       "proxy_port": 6080,
       "reconnect": true,
-      "reconnect_delay": "1",
+      "reconnect_delay": 5000,
       "resize": "scale",
-      "shared": false
+      "shared": true
     },
     "selectedRow": {
-      "asset_name": "RTG0007",
-      "asset_type": "RTG"
+      "asset_name": "QC0001",
+      "asset_type": "QC"
     }
   },
   "events": {
@@ -113,7 +113,7 @@
                   "component": {
                     "onRowClick": {
                       "config": {
-                        "script": "\t\n\t# get data for the row (asset setected) ans write in custom var, for diagnostics\n\tself.view.custom.selectedRow \u003d self.props.selection.data[0]\n\t# create the params dict from table to pass to funcion query caller\n\tparams \u003d self.props.selection.data[0]\n\t# get the data for the asset selected\n\t# activate bar for show activity to user when click over row\n\tself.view.custom.activate_bar \u003d True\n\t# retrieve rmcs for asset selected from db\n\tdata \u003d dfo_rcms.dev1.get_config(params)\n\t# write in custom var for diagnostics\n\tself.view.custom.config_data \u003d data\n\t# deactivate activity bar (only for visualization)\n\tself.view.custom.activate_bar \u003d False\n\t\n\t"
+                        "script": "\t\n\t# get data for the row (asset setected) ans write in custom var, for diagnostics\n\tself.view.custom.selectedRow \u003d self.props.selection.data[0]\n\t# create the params dict from table to pass to funcion query caller\n\tparams \u003d self.props.selection.data[0]\n\t# get the data for the asset selected\n\t# activate bar for show activity to user when click over row\n\tself.view.custom.activate_bar \u003d True\n\t# retrieve rmcs for asset selected from db\n\t#data \u003d dfo_rcms.dev1.get_config(params)\n\t# change to v-rc1\n\tdata \u003d dfo_rcms.v1.url.get_config(params)\n\t# write in custom var for diagnostics\n\tself.view.custom.config_data \u003d data\n\t# deactivate activity bar (only for visualization)\n\tself.view.custom.activate_bar \u003d False\n\t\n\t"
                       },
                       "scope": "G",
                       "type": "script"
@@ -330,12 +330,12 @@
                   "selection": {
                     "data": [
                       {
-                        "asset_name": "RTG0007",
-                        "asset_type": "RTG"
+                        "asset_name": "QC0001",
+                        "asset_type": "QC"
                       }
                     ],
                     "selectedColumn": "asset_name",
-                    "selectedRow": 8
+                    "selectedRow": 0
                   }
                 },
                 "type": "ia.display.table"
@@ -389,7 +389,7 @@
                   "component": {
                     "onSubmitActionPerformed": {
                       "config": {
-                        "script": "\t\n\tself.view.custom.activate_bar \u003d True\n\t# write the form data in a param to diagnostics\n\tparams \u003d self.props.data\n\tself.view.custom.params \u003d params\n\t\n\t# pass the params to the url generator to get the url string\n\t#url \u003d dfo_rcms.dev1.get_url(\"dfov1\", params)\n\t#self.view.custom.url \u003d url\n\t\n\t# selected asset\n\t#selected \u003d self.view\n\t\n\t# store config, get the state of the query 1 \u003d new inserted, 0 \u003d modified\n\tstate \u003d dfo_rcms.dev1.store_config(dict(params))\n\tself.view.custom.activate_bar \u003d False\n\t\n\tpopup_view \u003d \"popups/notify_result\"\n\t# defaul for new register\n\tpopup_parmas \u003d {\"icon_path\": \"material/done\", \"header\":\"Successfully Register\", \"text_feedback\": \"Result: {}\".format(state)}\n\tif state \u003d\u003d 0:\n\t\t# for same data\n\t\ticon_color \u003d \"#00D900\"\n\t\tpopup_parmas.update({\"icon_path\": \"material/announcement\", \"header\": \"No changes recorded\", \"icon_color\": icon_color})\n\telif state \u003d\u003d 1:\n\t\t# modification\n\t\ticon_color \u003d \"#00D900\"\n\t\tpopup_parmas.update({\"icon_path\": \"material/done\", \"header\": \"Successful update\", \"icon_color\": icon_color})\n\telif state \u003d\u003d 2:\n\t\ticon_color \u003d \"#FF8C00\"\n\t\tpopup_parmas.update({\"icon_path\": \"material/done_all\", \"header\": \"Successful update\", \"icon_color\": icon_color})\n\tsystem.perspective.openPopup(\"register_result\", popup_view, params \u003d popup_parmas, showCloseIcon \u003d True, resizable \u003d False, draggable\u003d False)"
+                        "script": "\t\n\tself.view.custom.activate_bar \u003d True\n\t# write the form data in a param to diagnostics\n\tparams \u003d self.props.data\n\tself.view.custom.params \u003d params\n\t\n\t# pass the params to the url generator to get the url string\n\t#url \u003d dfo_rcms.dev1.get_url(\"dfov1\", params)\n\t#self.view.custom.url \u003d url\n\t\n\t# selected asset\n\t#selected \u003d self.view\n\t\n\t# store config, get the state of the query 1 \u003d new inserted, 0 \u003d modified\n\t#state \u003d dfo_rcms.dev1.store_config(dict(params))\n\t# chage to vrc1\n\tstate \u003d dfo_rcms.v1.db.store_config(dict(params))\n\tself.view.custom.activate_bar \u003d False\n\t\n\tpopup_view \u003d \"RCMS/Desktop/PopUps/result\"\n\t# defaul for new register\n\tpopup_parmas \u003d {\"icon_path\": \"material/done\", \"header\":\"Successfully Register\", \"text_feedback\": \"Result: {}\".format(state)}\n\tif state \u003d\u003d 0:\n\t\t# for same data\n\t\ticon_color \u003d \"#00D900\"\n\t\tpopup_parmas.update({\"icon_path\": \"material/announcement\", \"header\": \"No changes recorded\", \"icon_color\": icon_color})\n\telif state \u003d\u003d 1:\n\t\t# modification\n\t\ticon_color \u003d \"#00D900\"\n\t\tpopup_parmas.update({\"icon_path\": \"material/done\", \"header\": \"Successful update\", \"icon_color\": icon_color})\n\telif state \u003d\u003d 2:\n\t\ticon_color \u003d \"#FF8C00\"\n\t\tpopup_parmas.update({\"icon_path\": \"material/done_all\", \"header\": \"Successful update\", \"icon_color\": icon_color})\n\tsystem.perspective.openPopup(\"register_result\", popup_view, params \u003d popup_parmas, showCloseIcon \u003d True, resizable \u003d False, draggable\u003d False)"
                       },
                       "scope": "G",
                       "type": "script"

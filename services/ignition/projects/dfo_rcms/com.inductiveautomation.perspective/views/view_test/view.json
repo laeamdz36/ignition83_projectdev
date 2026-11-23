@@ -1,22 +1,22 @@
 {
   "custom": {
     "current_config": {
-      "asset_name": "RTG0003",
-      "asset_type": "RTG",
+      "asset_name": "QC0001",
+      "asset_type": "QC",
       "autoconnect": true,
-      "cms_ip": "192.168.10.123",
-      "main_page": "remote.hmtl",
-      "proxy_ip": "192.168.10.136",
+      "cms_ip": "192.168.10.120",
+      "main_page": "remote.html",
+      "proxy_ip": "192.168.10.121",
       "proxy_port": 6080,
       "reconnect": true,
-      "reconnect_delay": 7000,
+      "reconnect_delay": 5000,
       "resize": "scale",
       "shared": true
     },
-    "dd_selection": "RTG0003",
+    "dd_selection": "QC0001",
     "history_date_range": {
-      "end_date": null,
-      "start_date": 1794895200000
+      "end_date": 1795759200000,
+      "start_date": 1795413600000
     },
     "options": [
       {
@@ -56,7 +56,7 @@
         "value": "RTG0007"
       }
     ],
-    "url": "http://192.168.10.136:6080/remote.hmtl?\u0026adp\u003df7087a5f-a01c-4e32-bacb-b7be9f4b5f7c\u0026autoconnect\u003dtrue\u0026resize\u003dscale\u0026shared\u003dtrue\u0026reconnect\u003dtrue\u0026reconnect_delay\u003d7000"
+    "url": "http://192.168.10.121:6080/remote.html?\u0026adp\u003dc23013be-31aa-484d-a790-72989e9bf7b5\u0026autoconnect\u003dtrue\u0026resize\u003dscale\u0026shared\u003dtrue\u0026reconnect\u003dtrue\u0026reconnect_delay\u003d5000"
   },
   "events": {
     "system": {
@@ -140,7 +140,7 @@
               "style": {
                 "padding": "10px"
               },
-              "value": "RTG0003"
+              "value": "QC0001"
             },
             "type": "ia.input.dropdown"
           },
@@ -149,7 +149,7 @@
               "component": {
                 "onActionPerformed": {
                   "config": {
-                    "script": "\t# retrieve data for the asset name and return the url\n\tselection \u003d self.view.custom.dd_selection\n\t\n\tparams \u003d {\"asset_name\": selection}\n\tconfig \u003d dfo_rcms.dev1.get_config(params)\n\tself.view.custom.current_config \u003d config\n\t# get the url \u0027dfov1\u0027\n\turl_type \u003d \"dfov1\"\n\t\n\tlogger \u003d system.util.getLogger(\"rcms_dev\")\n\t# get session metadata\n\tip_client \u003d str(self.session.props.host)\n\tclient_session \u003d dict(self.session.props.auth)\n\tlogger.info(\"Client session: %s\" % (client_session))\n\tconfig[\"ip_client\"] \u003d ip_client\n\tconfig[\"client_session\"] \u003d client_session\n\turl \u003d dfo_rcms.dev1.get_url(url_type, config)\n\tself.view.custom.url \u003d url"
+                    "script": "\t# retrieve data for the asset name and return the url\n\tselection \u003d str(self.view.custom.dd_selection)\n\t\n\t# put in the params dict config the asset name for the asset requeste\n\tparams \u003d {\"asset_name\": selection}\n\tparams[\"asset_type\"] \u003d dfo_rcms.v1.utils.get_asset_prefix(selection)\n\tparams[\"ip_client\"] \u003d str(self.session.props.host)\n\tparams[\"client_session\"] \u003d dict(self.session.props.auth)\n\t\n\n\t# get the url \u0027dfov1\u0027\n\turl_type \u003d \"dfov1\"\n\t\n\tlogger \u003d system.util.getLogger(\"rcms_dev\")\n\t\n\t\n\tclient_session \u003d dict(self.session.props.auth)\n\tlogger.info(\"Client session: %s\" % (client_session))\n\t\n\t\n\t#url \u003d dfo_rcms.dev1.get_url(url_type, config)\n\turl \u003d dfo_rcms.v1.url.get_url(url_type, params)\n\tself.view.custom.url \u003d url"
                   },
                   "scope": "G",
                   "type": "script"
@@ -229,7 +229,7 @@
                       "enabled": true,
                       "rate": "5"
                     },
-                    "queryPath": "rcms/get_all_hist",
+                    "queryPath": "rcms/mssql/get_all_hist",
                     "returnFormat": "json"
                   },
                   "type": "query"
@@ -268,7 +268,7 @@
               }
             },
             "props": {
-              "formattedValue": "Nov 17, 2026 12:00 AM",
+              "formattedValue": "Nov 23, 2026 12:00 AM",
               "style": {
                 "padding": "5px"
               },
@@ -276,9 +276,9 @@
                 "$": [
                   "ts",
                   0,
-                  1795127518473
+                  1795464205092
                 ],
-                "$ts": 1794895200000
+                "$ts": 1795413600000
               }
             },
             "type": "ia.input.date-time-input"
@@ -309,9 +309,17 @@
               }
             },
             "props": {
-              "formattedValue": "Jun 4, 2026 12:00 AM",
+              "formattedValue": "Nov 27, 2026 12:00 AM",
               "style": {
                 "padding": "5px"
+              },
+              "value": {
+                "$": [
+                  "ts",
+                  0,
+                  1795464207082
+                ],
+                "$ts": 1795759200000
               }
             },
             "type": "ia.input.date-time-input"
@@ -349,7 +357,7 @@
                   },
                   "transforms": [
                     {
-                      "code": "\t\t\n\tif value[\"start_date\"] \u003d\u003d None or value[\"end_date\"] \u003d\u003d None:\n\t\t\treturn None\n\tdata \u003d system.db.execQuery(\"rcms/history_parser\", value)\n\treturn data",
+                      "code": "\t\t\n\tif value[\"start_date\"] \u003d\u003d None or value[\"end_date\"] \u003d\u003d None:\n\t\t\treturn None\n\tdata \u003d system.db.execQuery(\"rcms/mssql/history_parser\", value)\n\treturn data",
                       "type": "script"
                     }
                   ],

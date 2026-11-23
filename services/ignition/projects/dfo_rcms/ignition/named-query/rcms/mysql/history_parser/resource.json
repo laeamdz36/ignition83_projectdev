@@ -7,10 +7,10 @@
     "query.sql"
   ],
   "attributes": {
-    "useMaxReturnSize": true,
+    "useMaxReturnSize": false,
     "autoBatchEnabled": false,
     "fallbackValue": "",
-    "maxReturnSize": 500,
+    "maxReturnSize": 100,
     "cacheUnit": "SEC",
     "type": "Query",
     "enabled": true,
@@ -18,7 +18,7 @@
     "cacheEnabled": false,
     "database": "docker_mysql1",
     "fallbackEnabled": false,
-    "lastModificationSignature": "13248dc8313436b8f832d2e983bbc1296d3e649840fbfa424682b85421fd2b34",
+    "lastModificationSignature": "872034671dd74531ae39a063122af500c13bc9c5cffa7f37d944ecbc4b61bec3",
     "permissions": [
       {
         "zone": "",
@@ -27,7 +27,19 @@
     ],
     "lastModification": {
       "actor": "luismdz",
-      "timestamp": "2026-11-19T22:02:39Z"
-    }
+      "timestamp": "2026-11-23T20:05:54Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "start_date",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "end_date",
+        "sqlType": 8
+      }
+    ]
   }
 }

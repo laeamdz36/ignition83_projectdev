@@ -145,7 +145,7 @@
                       },
                       "transforms": [
                         {
-                          "code": "\t\t\n\tif value[\"start_date\"] \u003d\u003d None or value[\"end_date\"] \u003d\u003d None:\n\t\t\treturn None\n\tdata \u003d system.db.execQuery(\"rcms/history_parser\", value)\n\treturn data",
+                          "code": "\t\t\n\tif value[\"start_date\"] \u003d\u003d None or value[\"end_date\"] \u003d\u003d None:\n\t\t\treturn None\n\tdata \u003d system.db.execQuery(\"rcms/mssql/history_parser\", value)\n\treturn data",
                           "type": "script"
                         }
                       ],
